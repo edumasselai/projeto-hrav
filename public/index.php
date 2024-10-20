@@ -1,29 +1,33 @@
-<?php require_once '../config/db.php'; ?>
+<?php
+include_once 'includes/db.php';
+
+// Buscando perguntas ativas
+$query = "SELECT * FROM perguntas WHERE status = TRUE";
+$result = pg_query($conexao, $query);
+$perguntas = pg_fetch_all($result);
+?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Avaliação - HRAV</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/scripts.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação de Serviços HRAV</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1>Avalie nossos serviços</h1>
-    <form action="agradecimento.php" method="POST">
-        <?php
-        $stmt = $conn->query("SELECT id, texto FROM perguntas WHERE status = 'ativa'");
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "<label>{$row['texto']}</label>";
-            echo "<input type='number' name='resposta[{$row['id']}]' min='0' max='10' required><br>";
-        }
-        ?>
-        <label>Comentário adicional (opcional):</label>
-        <textarea name="feedback" rows="4"></textarea>
+    <h1>Avaliação de Serviços</h1>
+    <form action="submit.php" method="POST">
+        <?php foreach ($perguntas as $pergunta): ?>
+            <label><?= htmlspecialchars($pergunta['texto']); ?></label>
+            <input type="range" name="respostas[<?= $pergunta['id_pergunta'] ?>]" min="0" max="10">
+        <?php endforeach; ?>
+        
+        <label>Feedback adicional (opcional)</label>
+        <textarea name="feedback"></textarea>
+
+        <p><strong>Sua avaliação espontânea é anônima, nenhuma informação pessoal é solicitada ou armazenada.</strong></p>
         <button type="submit">Enviar Avaliação</button>
     </form>
-    <footer>
-        <p>Sua avaliação espontânea é anônima, nenhuma informação pessoal é solicitada ou armazenada.</p>
-    </footer>
 </body>
 </html>
