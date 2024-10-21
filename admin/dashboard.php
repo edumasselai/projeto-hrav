@@ -8,7 +8,7 @@ require_once '../config/db.php';
 <head>
     <meta charset="UTF-8">
     <title>Dashboard - HRAV</title>
-    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../public/css/estilo.css">
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
