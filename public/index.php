@@ -17,7 +17,7 @@ $perguntas = pg_fetch_all($result);
 </head>
 <body>
     <h1>Avaliação de Serviços</h1>
-    <form action="submit.php" method="POST">
+    <form action="public/login.php" method="POST">
         <?php foreach ($perguntas as $pergunta): ?>
             <label><?= htmlspecialchars($pergunta['texto']); ?></label>
             <input type="range" name="respostas[<?= $pergunta['id_pergunta'] ?>]" min="0" max="10">

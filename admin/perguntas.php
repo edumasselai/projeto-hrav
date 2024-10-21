@@ -47,10 +47,10 @@ $perguntas = pg_fetch_all($result);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Perguntas</title>
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/estilo.css">
 </head>
 <body>
-    <?php include '../partials/header.php'; ?>
+    <?php include '../includes/header.php'; ?>
 
     <h1>Gerenciar Perguntas</h1>
 
@@ -92,7 +92,7 @@ $perguntas = pg_fetch_all($result);
         </tbody>
     </table>
 
-    <?php include '../partials/footer.php'; ?>
+    <?php include '../includes/footer.php'; ?>
 
     <script>
         function editPergunta(id, texto) {
