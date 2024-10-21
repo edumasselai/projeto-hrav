@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../config/db.php';
+require_once '../includes/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $login = $_POST['login'];
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Login - HRAV</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
     <form method="POST">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Agradecimento - HRAV</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
     <h1>Obrigado pela sua Avaliação!</h1>
