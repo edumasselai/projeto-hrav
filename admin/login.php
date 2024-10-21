@@ -3,8 +3,8 @@ session_start();
 include_once '../includes/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = $_POST['admin'];
+    $password = $_POST['admin'];
 
     $query = "SELECT * FROM usuarios_admin WHERE username = $1";
     $result = pg_query_params($conexao, $query, [$username]);
